@@ -99,6 +99,9 @@ end
 local function getCpatureMatchesRecursively(bufnr, parser)
     local noQuery = true
     local res = {}
+    if not parser then
+        return not noQuery, res
+    end
     parser:for_each_tree(function(tree, langTree)
         local lang = langTree:lang()
         if query.has_folds(lang) then
