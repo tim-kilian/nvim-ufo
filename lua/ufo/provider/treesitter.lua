@@ -129,7 +129,7 @@ function Treesitter.getFolds(bufnr)
     local parser = parsers.get_parser(bufnr)
     if not parser then
         self.hasProviders[ft] = false
-        error('UfoFallbackException')
+        -- error('UfoFallbackException')
     end
 
     local ranges = {}
