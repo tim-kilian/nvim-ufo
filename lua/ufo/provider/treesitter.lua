@@ -133,13 +133,15 @@ function Treesitter.getFolds(bufnr)
     if not parser then
         self.hasProviders[ft] = false
         -- error('UfoFallbackException')
+        return
     end
 
     local ranges = {}
     local ok, matches = getCpatureMatchesRecursively(bufnr, parser)
     if not ok then
         self.hasProviders[ft] = false
-        error('UfoFallbackException')
+        -- error('UfoFallbackException')
+        return
     end
     for _, node in ipairs(matches) do
         local start, _, stop, stop_col = node:range()
