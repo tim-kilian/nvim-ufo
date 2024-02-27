@@ -127,7 +127,8 @@ function Treesitter.getFolds(bufnr)
     local self = Treesitter
     local ft = buf:filetype()
     if self.hasProviders[ft] == false then
-        error('UfoFallbackException')
+        -- error('UfoFallbackException')
+        return
     end
     local parser = parsers.get_parser(bufnr)
     if not parser then
